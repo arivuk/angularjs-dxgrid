@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>sample</title>
+     <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/20.1.6/css/dx.common.css" />
+  <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/20.1.6/css/dx.light.css" />
+  </head>
+  <body>
+<div id="app" ng-app="app" >
+  <div>sample</div>
+  
+<a href="#!home">Red</a>
+<a href="#!grid">Green</a>
+<a href="#!blue">Blue</a>
+   <div ui-view>
+
+   </div>
+   </div>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <script src="https://js.devexpress.com/SharedStatic/DevExtreme/14_1/js/angular-sanitize.js&gt;"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/globalize/0.1.1/globalize.min.js"></script>
+<script type="text/javascript" src="./home/home.controller.js" ></script>
+<script type="text/javascript" src="./dxgrid/dxgrid.controller.js" ></script>
+
+ <script type="text/javascript">
+ var app = angular.module('app', ['ngRoute']);
+
+console.log("app",app)
+app.config(['$routeProvider', function ($routeProvider, $locationProvider) {
+    $routeProvider
+        .when('/home', {
+            controller: 'homeController',
+            templateUrl: 'home/home.html',
+            title: 'Case Maintenance -  AgileCourt',
+        })
+         .when('/grid', {
+             controller: 'gridController',
+             templateUrl: 'dxgrid/dxgrid.html',
+             title: 'Case Maintenance -  AgileCourt',
+         })
+       .otherwise({ redirectTo: '/home' });
+}]);
+   </script>
+   </body>
+</html>
+
+
+
